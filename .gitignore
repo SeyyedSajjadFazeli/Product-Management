@@ -1,0 +1,16 @@
+# Backend
+db.sqlite3
+*.pyc
+__pycache__/
+venv/
+media/
+*.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# عمومی
+.DS_Store
+*.log
