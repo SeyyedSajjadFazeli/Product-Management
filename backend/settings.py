@@ -53,7 +53,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
+    "https://product-management-1-s46f.onrender.com",
 ]
 
 REST_FRAMEWORK = {
