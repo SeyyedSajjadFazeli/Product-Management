@@ -1,0 +1,1184 @@
+/* From Uiverse.io by mamyapro123 - Doodle Style */
+.doodle-wrapper {
+  /* Color Palette */
+  --ink: #323232;
+  --paper-front: #fff9e6;
+  --paper-back: #e6f0ff;
+  --bg-color: #ffffff;
+  --primary-btn: #ff6b6b;
+  --primary-btn-hover: #ff5252;
+  --secondary-btn: #4ecdc4;
+  --secondary-btn-hover: #3bbfb6;
+  --success-btn: #48bb78;
+  --success-btn-hover: #38a169;
+  --danger-btn: #fc8181;
+  --switch-bg: #ffe66d;
+  --input-focus: #2d8cf0;
+
+  --border-width: 2px;
+  --shadow-offset: 4px;
+
+  /* Doodle Border Radiuses */
+  --sketch-radius-1: 8px 24px 8px 24px / 24px 8px 24px 8px;
+  --sketch-radius-2: 24px 8px 24px 8px / 8px 24px 8px 24px;
+  --sketch-radius-btn: 16px 5px 16px 5px / 5px 16px 16px 5px;
+
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", "Gochi Hand",
+    "Vazirmatn", sans-serif;
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ====================== هدر ====================== */
+.doodle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background-color: var(--paper-front);
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-1);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.doodle-title-main {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0;
+  transform: rotate(-1deg);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.doodle-badge {
+  background-color: var(--switch-bg);
+  padding: 8px 20px;
+  border: var(--border-width) solid var(--ink);
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 2px 2px 0px var(--ink);
+}
+
+/* ====================== دکمه‌ها ====================== */
+.doodle-actions {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.doodle-btn {
+  padding: 10px 25px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  background-color: var(--bg-color);
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-btn);
+  box-shadow: 4px 4px 0px var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  transform: rotate(-0.5deg);
+}
+
+.bi-box-seam {
+  font-size: 50px;
+}
+
+.doodle-btn:hover {
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 5px 5px 0px var(--ink);
+}
+
+.doodle-btn:active {
+  transform: translate(3px, 3px) rotate(0deg);
+  box-shadow: 0px 0px 0px var(--ink);
+}
+
+.doodle-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.doodle-btn-primary {
+  background-color: var(--primary-btn);
+}
+.doodle-btn-primary:hover {
+  background-color: var(--primary-btn-hover);
+}
+
+.doodle-btn-success {
+  background-color: var(--success-btn);
+}
+.doodle-btn-success:hover {
+  background-color: var(--success-btn-hover);
+}
+
+.doodle-btn-danger {
+  background-color: var(--danger-btn);
+}
+.doodle-btn-danger:hover {
+  background-color: #fc6363;
+}
+
+.doodle-btn-warning {
+  background-color: #f6ad55;
+}
+.doodle-btn-warning:hover {
+  background-color: #ed8936;
+}
+
+.doodle-btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.doodle-btn-icon {
+  padding: 6px 12px;
+  border: var(--border-width) solid var(--ink);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  box-shadow: 2px 2px 0px var(--ink);
+}
+
+.doodle-btn-icon:hover {
+  transform: translateY(-2px);
+}
+
+.doodle-btn-edit {
+  background-color: #bee3f8;
+}
+.doodle-btn-edit:hover {
+  background-color: #90cdf4;
+}
+
+.doodle-btn-delete {
+  background-color: #fed7d7;
+}
+.doodle-btn-delete:hover {
+  background-color: #fc8181;
+}
+
+/* ====================== کارت فرم ====================== */
+.doodle-card {
+  background-color: var(--paper-back);
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-2);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+  padding: 25px;
+  margin-bottom: 30px;
+  animation: doodle-slide-down 0.4s ease-out;
+}
+
+@keyframes doodle-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doodle-card-inner {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 28px,
+    rgba(0, 0, 0, 0.05) 28px,
+    rgba(0, 0, 0, 0.05) 30px
+  );
+  background-position: 0 15px;
+  padding: 10px;
+}
+
+.doodle-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.doodle-card-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0;
+  transform: rotate(-1deg);
+}
+
+.doodle-card-icon {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.doodle-close-btn {
+  background: none;
+  border: var(--border-width) solid var(--ink);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doodle-close-btn:hover {
+  background-color: var(--danger-btn);
+  transform: rotate(90deg);
+}
+
+/* ====================== فرم ====================== */
+.doodle-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.doodle-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.doodle-form-group:last-of-type {
+  grid-column: 1 / -1;
+}
+
+.doodle-label {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.doodle-input,
+.doodle-textarea {
+  padding: 10px 15px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  background-color: var(--bg-color);
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-1);
+  box-shadow: 3px 3px 0px var(--ink);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.doodle-input:hover,
+.doodle-textarea:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px var(--ink);
+}
+
+.doodle-input:focus,
+.doodle-textarea:focus {
+  border-color: var(--input-focus);
+  border-radius: var(--sketch-radius-2);
+  background-color: #fffdf5;
+  box-shadow: 4px 4px 0px var(--ink);
+}
+
+.doodle-input-error {
+  border-color: #fc8181 !important;
+}
+
+.doodle-error-msg {
+  color: #e53e3e;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.doodle-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* ====================== تگ‌های دسته‌بندی ====================== */
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.category-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #f0f0f0;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  color: #333;
+}
+
+.category-tag:hover {
+  transform: scale(1.05);
+  background-color: #e0e0e0;
+}
+
+.category-tag.active {
+  background-color: #667eea;
+  border-color: #5a67d8;
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.doodle-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ====================== هشدارها ====================== */
+.doodle-alert {
+  padding: 15px 20px;
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-1);
+  box-shadow: 3px 3px 0px var(--ink);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.doodle-alert-error {
+  background-color: #fed7d7;
+  border-color: #fc8181;
+}
+
+.doodle-alert-icon {
+  font-size: 20px;
+}
+
+.doodle-alert-close {
+  margin-right: auto;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ====================== بارگذاری ====================== */
+.doodle-loading {
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.doodle-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--paper-front);
+  border-top: 4px solid var(--primary-btn);
+  border-radius: 50%;
+  animation: doodle-spin 1s linear infinite;
+}
+
+@keyframes doodle-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ====================== جدول ====================== */
+.doodle-table-wrapper {
+  margin-top: 20px;
+}
+
+.doodle-table-responsive {
+  overflow-x: auto;
+}
+
+.doodle-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  font-family: inherit;
+}
+
+.doodle-table thead th {
+  background-color: var(--paper-back);
+  padding: 12px 18px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--ink);
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-1);
+  box-shadow: 2px 2px 0px var(--ink);
+  font-size: 14px;
+}
+
+.doodle-table tbody tr {
+  background-color: var(--paper-front);
+  transition: all 0.3s ease;
+}
+
+.doodle-table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doodle-table tbody td {
+  padding: 12px 18px;
+  border-bottom: var(--border-width) solid var(--ink);
+  vertical-align: middle;
+}
+
+.doodle-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.doodle-actions-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.doodle-table-row {
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.doodle-category-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  border: var(--border-width) solid var(--ink);
+  box-shadow: 2px 2px 0px var(--ink);
+}
+
+/* ====================== حالت خالی ====================== */
+.doodle-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--paper-front);
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--sketch-radius-1);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+}
+
+.doodle-empty i {
+  font-size: 50px;
+  color: #ddd;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.doodle-empty p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* ====================== کارت هدر ====================== */
+.logo-section.card-style {
+  --bg-color: #fdfbf7;
+  --ink-color: #2c2c2c;
+  --paper-line: #e6e0d4;
+  --tape-color: rgba(255, 221, 161, 0.85);
+  --accent-coral: #ff8ba7;
+  --accent-mint: #c6e377;
+  --accent-lavender: #c0bbfe;
+  --accent-yellow: #ffdf6c;
+
+  position: relative;
+  padding: 3em 2.5em 2em;
+  background:
+    linear-gradient(var(--bg-color) 1.5em, transparent 1.5em) 0 0 / 100% 1.6em,
+    linear-gradient(var(--paper-line) 0.08em, transparent 0.08em) 0 1.5em / 100% 1.6em var(--bg-color);
+  border: 0.25em solid var(--ink-color);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 0.5em 0.5em 0 var(--ink-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floatCard 6s ease-in-out infinite;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+.logo-section.card-style::before {
+  content: "";
+  position: absolute;
+  top: -0.7em;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 5em;
+  height: 1.4em;
+  background: var(--tape-color);
+  border: 0.1em solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.1);
+  border-radius: 2px 4px 2px 5px;
+  z-index: 10;
+  animation: tapeFlutter 4s infinite alternate ease-in-out;
+}
+
+.logo-section.card-style .doodle {
+  position: absolute;
+  fill: none;
+  stroke: var(--ink-color);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  z-index: 1;
+}
+
+.logo-section.card-style .doodle.star {
+  width: 1.8em;
+  height: 1.8em;
+  top: 1.5em;
+  right: 1.5em;
+  fill: var(--accent-yellow);
+  animation: pulseSparkle 3s infinite alternate ease-in-out;
+}
+
+.logo-section.card-style .doodle.sparkle {
+  width: 1.5em;
+  height: 1.5em;
+  top: 4em;
+  left: 1.5em;
+  fill: var(--accent-mint);
+  animation: pulseSparkle 2.5s infinite alternate-reverse ease-in-out;
+}
+
+.logo-section.card-style .doodle.swirl {
+  width: 2.5em;
+  height: 2.5em;
+  bottom: 2em;
+  right: 1em;
+  stroke: var(--accent-lavender);
+  stroke-width: 6;
+  opacity: 0.6;
+  animation: rotateDoodle 15s linear infinite;
+}
+
+.logo-section.card-style .logo-icon {
+  width: 4em;
+  height: 4em;
+  position: relative;
+  margin-bottom: 1.2em;
+  background: #ffdeb3;
+  border: 0.2em solid var(--ink-color);
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  box-shadow: 0.3em 0.3em 0 var(--accent-coral);
+  animation: avatarBounce 4s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  z-index: 2;
+}
+
+
+.logo-section.card-style .card-title {
+  text-align: center;
+  color: var(--ink-color);
+  font-size: 3em;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5em;
+  text-shadow: 0.08em 0.08em 0 var(--accent-lavender);
+  z-index: 2;
+}
+
+.logo-section.card-style .card-title span {
+  display: inline-block;
+  font-size: 0.45em;
+  color: var(--ink-color);
+  background: var(--accent-mint);
+  padding: 0.4em 1em;
+  border: 0.15em solid var(--ink-color);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  margin-top: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0.2em 0.2em 0 var(--ink-color);
+  animation: badgeFloat 3s ease-in-out infinite alternate;
+  text-shadow: none;
+}
+
+.logo-section.card-style .card-socials {
+  display: flex;
+  gap: 1em;
+  height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+}
+
+.logo-section.card-style:hover .card-socials {
+  height: 3em;
+  opacity: 1;
+  margin-top: 1.5em;
+  overflow: visible;
+}
+
+.logo-section.card-style .card-socials-btn {
+  width: 2.8em;
+  height: 2.8em;
+  border: 0.15em solid var(--ink-color);
+  background: #fff;
+  border-radius: 50% 40% 60% 40% / 40% 60% 40% 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.2em 0.2em 0 var(--ink-color);
+  transition: all 0.2s ease;
+}
+
+.logo-section.card-style .card-socials-btn .clc {
+  font-size: 1.4em;
+  color: var(--ink-color);
+  transition: transform 0.2s ease;
+}
+
+.logo-section.card-style .card-socials-btn:hover {
+  transform: translateY(-0.3em);
+  animation: btnWiggle 0.6s ease-in-out infinite;
+}
+
+.logo-section.card-style .card-socials-btn.facebook:hover {
+  background: var(--accent-lavender);
+}
+.logo-section.card-style .card-socials-btn.github:hover {
+  background: var(--accent-coral);
+}
+.logo-section.card-style .card-socials-btn.linkedin:hover {
+  background: var(--accent-mint);
+}
+
+/* ====================== انیمیشن‌ها ====================== */
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.4em); }
+}
+
+@keyframes tapeFlutter {
+  0% { transform: translateX(-50%) rotate(-4deg) scale(1); }
+  100% { transform: translateX(-50%) rotate(-2deg) scale(1.02); }
+}
+
+@keyframes pulseSparkle {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes rotateDoodle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes avatarBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  }
+  50% {
+    transform: translateY(-0.3em) scale(1.02);
+    border-radius: 45% 55% 50% 50% / 45% 50% 50% 55%;
+  }
+}
+
+@keyframes badgeFloat {
+  0% { transform: translateY(0) rotate(-1deg); }
+  100% { transform: translateY(-0.2em) rotate(1deg); }
+}
+
+@keyframes btnWiggle {
+  0%, 100% { transform: translateY(-0.3em) rotate(0deg); }
+  25% { transform: translateY(-0.3em) rotate(-8deg); }
+  75% { transform: translateY(-0.3em) rotate(8deg); }
+}
+
+/* ====================== ریسپانسیو ====================== */
+@media (max-width: 768px) {
+  .doodle-wrapper {
+    padding: 10px;
+  }
+
+  .doodle-actions {
+    text-align: center !important;
+    margin-bottom: 25px !important;
+    justify-content: center !important;
+  }
+
+  .doodle-btn {
+    padding: 12px 20px;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .doodle-card {
+    margin: 0 10px 25px !important;
+    width: calc(100% - 20px) !important;
+    max-width: 100% !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+  }
+
+  .doodle-card-inner {
+    padding: 15px !important;
+  }
+
+  .doodle-card-header {
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .doodle-card-title {
+    font-size: 1.2rem !important;
+  }
+
+  .doodle-form {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .doodle-form-group {
+    margin-bottom: 0 !important;
+  }
+
+  .doodle-form-group:last-of-type {
+    grid-column: 1 !important;
+  }
+
+  .doodle-input,
+  .doodle-textarea {
+    padding: 14px 16px !important;
+    font-size: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .doodle-textarea {
+    min-height: 100px !important;
+  }
+
+  .doodle-form-actions {
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+
+  .doodle-form-actions button {
+    width: 100% !important;
+    padding: 14px 20px !important;
+    font-size: 1rem !important;
+    justify-content: center;
+  }
+
+  .doodle-table thead {
+    display: none;
+  }
+
+  .doodle-table tbody tr {
+    display: block;
+    margin-bottom: 18px;
+    padding: 16px;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--sketch-radius-1);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+    background-color: var(--paper-front);
+  }
+
+  .doodle-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  .doodle-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .doodle-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--ink);
+    flex-basis: 45%;
+    margin-left: 10px;
+  }
+
+  .doodle-actions-group {
+    justify-content: flex-end;
+  }
+
+  .logo-section.card-style {
+    padding: 2em 1.5em 1.5em;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .logo-section.card-style .card-title {
+    font-size: 2em;
+  }
+
+  .logo-section.card-style .card-title span {
+    font-size: 0.4em;
+  }
+
+  .logo-section.card-style .logo-icon {
+    width: 3em;
+    height: 3em;
+    font-size: 1.5em;
+  }
+
+  .logo-section.card-style .doodle.star {
+    width: 1.2em;
+    height: 1.2em;
+    top: 1em;
+    right: 1em;
+  }
+
+  .logo-section.card-style .doodle.sparkle {
+    width: 1em;
+    height: 1em;
+    top: 2.5em;
+    left: 1em;
+  }
+
+  .logo-section.card-style .doodle.swirl {
+    width: 1.8em;
+    height: 1.8em;
+    bottom: 1.5em;
+    right: 0.5em;
+  }
+
+  .logo-section.card-style .card-socials-btn {
+    width: 2.2em;
+    height: 2.2em;
+  }
+
+  .logo-section.card-style:hover .card-socials {
+    height: 2.5em;
+    margin-top: 1em;
+  }
+
+  .category-tags {
+    gap: 5px;
+  }
+
+  .category-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .doodle-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 18px;
+  }
+
+  .doodle-title-main {
+    font-size: 22px;
+  }
+
+  .doodle-badge {
+    font-size: 14px;
+    padding: 6px 16px;
+  }
+
+  .doodle-alert {
+    padding: 12px 16px;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+}
+
+/* گوشی‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .doodle-card-inner {
+    padding: 12px 10px !important;
+  }
+
+  .doodle-card-title {
+    font-size: 1rem !important;
+  }
+
+  .doodle-input,
+  .doodle-textarea {
+    padding: 12px 14px !important;
+    font-size: 15px !important;
+  }
+
+  .logo-section.card-style .card-title {
+    font-size: 1.5em;
+  }
+
+  .logo-section.card-style .card-title span {
+    font-size: 0.35em;
+  }
+
+  .doodle-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .category-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+.sajj{
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background-color: var(--paper-front);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ====================== استایل‌های موبایل برای نمایش اطلاعات محصول ====================== */
+
+/* استایل اطلاعات محصول در موبایل */
+.doodle-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.doodle-product-name {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.doodle-product-desc-mobile {
+  font-size: 12px;
+  color: #888;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.doodle-price {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ====================== ریسپانسیو موبایل ====================== */
+@media (max-width: 768px) {
+  /* مخفی کردن هدر جدول در موبایل */
+  .doodle-table thead {
+    display: none;
+  }
+
+  /* نمایش هر ردیف به صورت کارت */
+  .doodle-table tbody tr {
+    display: block;
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--sketch-radius-1);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+    background-color: var(--paper-front);
+    transition: all 0.3s ease;
+  }
+
+  .doodle-table tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px var(--ink);
+  }
+
+  /* هر سلول به صورت ردیف با لیبل */
+  .doodle-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    gap: 10px;
+  }
+
+  .doodle-table tbody td:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .doodle-table tbody td:first-child {
+    padding-top: 0;
+  }
+
+  /* نمایش لیبل قبل از مقدار */
+  .doodle-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 13px;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+
+  /* ستون شماره */
+  .doodle-table tbody td:first-child::before {
+    content: "شماره";
+  }
+
+  /* ستون نام محصول */
+  .doodle-table tbody td:nth-child(2)::before {
+    content: "نام محصول";
+  }
+
+  /* ستون دسته‌بندی */
+  .doodle-table tbody td:nth-child(3)::before {
+    content: "دسته‌بندی";
+  }
+
+  /* ستون قیمت */
+  .doodle-table tbody td:nth-child(4)::before {
+    content: "قیمت";
+  }
+
+  /* ستون عملیات */
+  .doodle-table tbody td:nth-child(5)::before {
+    content: "عملیات";
+  }
+
+  /* تنظیمات ویژه برای ستون نام محصول */
+  .doodle-table tbody td:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .doodle-table tbody td:nth-child(2)::before {
+    align-self: flex-start;
+  }
+
+  .doodle-product-info {
+    width: 100%;
+  }
+
+  /* تنظیمات ویژه برای ستون عملیات */
+  .doodle-table tbody td:nth-child(5) {
+    justify-content: flex-end;
+  }
+
+  .doodle-table tbody td:nth-child(5)::before {
+    flex-shrink: 0;
+  }
+
+  .doodle-actions-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  /* بج دسته‌بندی در موبایل */
+  .doodle-category-badge {
+    font-size: 11px;
+    padding: 3px 12px;
+  }
+
+  .doodle-price {
+    font-size: 14px;
+  }
+
+  /* دکمه‌های اکشن در موبایل */
+  .doodle-btn-sm {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  /* استایل کارت خالی */
+  .doodle-empty {
+    padding: 40px 20px;
+  }
+
+  .doodle-empty i {
+    font-size: 40px;
+  }
+
+  .doodle-empty p {
+    font-size: 16px;
+  }
+}
+
+/* گوشی‌های بسیار کوچک */
+@media (max-width: 480px) {
+  .doodle-table tbody tr {
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+
+  .doodle-table tbody td {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+
+  .doodle-table tbody td::before {
+    font-size: 12px;
+    min-width: 65px;
+  }
+
+  .doodle-product-name {
+    font-size: 14px;
+  }
+
+  .doodle-product-desc-mobile {
+    font-size: 11px;
+  }
+
+  .doodle-category-badge {
+    font-size: 10px;
+    padding: 2px 10px;
+  }
+
+  .doodle-price {
+    font-size: 13px;
+  }
+
+  .doodle-btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .doodle-actions-group {
+    gap: 5px;
+  }
+}

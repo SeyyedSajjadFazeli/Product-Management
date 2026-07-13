@@ -1,0 +1,225 @@
+<div class="doodle-wrapper">
+  <div class="header-content">
+    <div class="logo-section card-style">
+      <!-- دکوراسیون‌های کارت -->
+      <svg class="doodle star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15 9L22 10L17 15L18.5 22L12 18.5L5.5 22L7 15L2 10L9 9L12 2Z"></path>
+      </svg>
+      <svg class="doodle sparkle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 12 24C12 17.4 6.6 12 12 0Z"></path>
+      </svg>
+      <svg class="doodle swirl" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10C27.9 10 10 27.9 10 50C10 72.1 27.9 90 50 90C72.1 90 90 72.1 90 50C90 32.3 75.7 18 58 18C44.3 18 33 29.3 33 43C33 53.5 41.5 62 52 62C59.7 62 66 55.7 66 48"></path>
+      </svg>
+
+      <div class="logo-icon card-photo"><i class="bi bi-box-seam"></i></div>
+
+      <div class="card-title">
+        مدیریت محصولات
+        <span>سیستم مدیریت هوشمند محصولات</span>
+      </div>
+
+      <div class="card-socials">
+        <button class="card-socials-btn facebook" aria-label="Telegram" onclick="window.open('https://t.me/SeyyedSajjadFazeli', '_blank');">
+          <i class="bi bi-telegram clc"></i>
+        </button>
+        <button class="card-socials-btn github" aria-label="GitHub" onclick="window.open('https://github.com/SeyyedSajjadFazeli', '_blank');">
+          <i class="bi bi-github clc"></i>
+        </button>
+        <button class="card-socials-btn linkedin" aria-label="LinkedIn" onclick="window.open('https://www.linkedin.com/in/seyyed-sajjad-fazeli-a58aa1360/', '_blank');">
+          <i class="bi bi-linkedin clc"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- هدر -->
+  <div class="doodle-header">
+    <h1 class="doodle-title-main">
+      <i class="bi bi-folder2-open"></i> مدیریت محصولات
+    </h1>
+    <div class="doodle-badge">
+      {{ products.length }} محصول
+    </div>
+  </div>
+
+  <!-- نمایش خطاها -->
+  <div *ngIf="errorMessage" class="doodle-alert doodle-alert-error">
+    <span class="doodle-alert-icon">⚠️</span>
+    {{ errorMessage }}
+    <button class="doodle-alert-close" (click)="errorMessage = ''">✕</button>
+  </div>
+
+  <!-- دکمه افزودن محصول -->
+  <div class="doodle-actions">
+    <button class="doodle-btn doodle-btn-primary" (click)="openAddForm()">
+      <i class="bi bi-plus-lg"></i> افزودن محصول جدید
+    </button>
+  </div>
+
+  <!-- فرم افزودن/ویرایش محصول -->
+  <div *ngIf="showForm" class="doodle-card slide-in">
+    <div class="doodle-card-inner">
+      <div class="doodle-card-header">
+        <h3 class="doodle-card-title">
+          <span class="doodle-card-icon">
+            <i class="bi" [class.bi-pencil-square]="isEditing" [class.bi-plus-circle]="!isEditing"></i>
+          </span>
+          {{ isEditing ? 'ویرایش محصول' : 'افزودن محصول جدید' }}
+        </h3>
+        <button class="doodle-close-btn" (click)="closeForm()" aria-label="بستن">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <form (ngSubmit)="saveProduct()" class="doodle-form">
+        <!-- نام محصول -->
+        <div class="doodle-form-group">
+          <label class="doodle-label"><i class="bi bi-textarea-t"></i> نام محصول *</label>
+          <input
+            [(ngModel)]="currentProduct.name"
+            name="name"
+            placeholder="مثال: لپ تاپ ایسوس"
+            required
+            class="doodle-input"
+            [class.doodle-input-error]="submitted && !currentProduct.name">
+          <div *ngIf="submitted && !currentProduct.name" class="doodle-error-msg">
+            لطفاً نام محصول را وارد کنید
+          </div>
+        </div>
+
+        <!-- قیمت -->
+        <div class="doodle-form-group">
+          <label class="doodle-label"><i class="bi bi-tags"></i> قیمت (تومان) *</label>
+          <input
+            type="number"
+            [(ngModel)]="currentProduct.price"
+            name="price"
+            placeholder="مثال: 25000000"
+            step="1000"
+            min="0"
+            required
+            class="doodle-input"
+            [class.doodle-input-error]="submitted && !currentProduct.price">
+          <div *ngIf="submitted && !currentProduct.price" class="doodle-error-msg">
+            لطفاً قیمت را وارد کنید
+          </div>
+        </div>
+
+        <!-- دسته‌بندی به صورت تگ -->
+        <div class="doodle-form-group">
+          <label class="doodle-label"><i class="bi bi-tag"></i> دسته‌بندی</label>
+
+          <!-- تگ‌های دسته‌بندی -->
+          <div class="category-tags">
+            <span *ngFor="let cat of predefinedCategories"
+                  class="category-tag"
+                  [class.active]="currentProduct.category === cat"
+                  (click)="selectCategory(cat)">
+              {{ cat }}
+            </span>
+          </div>
+
+          <!-- ورودی دستی دسته‌بندی -->
+          <input
+            [(ngModel)]="currentProduct.category"
+            name="category"
+            placeholder="یا دسته‌بندی دلخواه خود را بنویسید..."
+            class="doodle-input">
+
+          <small class="doodle-hint">💡 برای انتخاب دسته‌بندی روی تگ‌ها کلیک کنید یا دسته‌بندی دلخواه را وارد کنید</small>
+        </div>
+
+        <!-- توضیحات -->
+        <div class="doodle-form-group">
+          <label class="doodle-label"><i class="bi bi-file-text"></i> توضیحات</label>
+          <textarea
+            [(ngModel)]="currentProduct.description"
+            name="description"
+            placeholder="توضیحات کامل محصول را وارد کنید..."
+            rows="4"
+            class="doodle-textarea">
+          </textarea>
+        </div>
+
+        <div class="doodle-form-actions">
+          <button type="submit" class="doodle-btn doodle-btn-success" [disabled]="loading">
+            <i class="bi" [class.bi-save]="isEditing" [class.bi-plus-circle]="!isEditing"></i>
+            {{ isEditing ? 'ویرایش' : 'افزودن' }}
+          </button>
+          <button type="button" class="doodle-btn doodle-btn-danger" (click)="closeForm()">
+            <i class="bi bi-x-lg"></i> انصراف
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- بارگذاری -->
+  <div *ngIf="loading" class="doodle-loading">
+    <div class="doodle-spinner"></div>
+    <p>در حال بارگذاری...</p>
+  </div>
+
+  <!-- جدول محصولات -->
+  <div *ngIf="!loading" class="doodle-table-wrapper">
+    <div class="doodle-table-responsive">
+      <table class="doodle-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>نام محصول</th>
+            <th>دسته‌بندی</th>
+            <th>قیمت (تومان)</th>
+            <th>عملیات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index" class="doodle-table-row">
+            <td data-label="#">{{ i + 1 }}</td>
+            <td data-label="نام محصول">
+              <div class="doodle-product-info">
+                <strong class="doodle-product-name">{{ product.name }}</strong>
+                <span *ngIf="product.description" class="doodle-product-desc-mobile">{{ product.description }}</span>
+              </div>
+            </td>
+            <td data-label="دسته‌بندی">
+              <span *ngIf="product.category"
+                    class="doodle-category-badge"
+                    [style.backgroundColor]="getCategoryColor(product.category)">
+                {{ product.category }}
+              </span>
+              <span *ngIf="!product.category" class="doodle-category-badge" style="background-color: #a0aec0;">
+                بدون دسته
+              </span>
+            </td>
+            <td data-label="قیمت (تومان)">
+              <span class="doodle-price">{{ product.price | number }}</span>
+            </td>
+            <td data-label="عملیات">
+              <div class="doodle-actions-group">
+                <button class="doodle-btn doodle-btn-sm doodle-btn-warning" (click)="editProduct(product)">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="doodle-btn doodle-btn-sm doodle-btn-danger" (click)="deleteProduct(product.id!)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="products.length === 0">
+            <td colspan="5" class="doodle-empty">
+              <i class="bi bi-inbox"></i>
+              <p>هیچ محصولی یافت نشد</p>
+              <button class="doodle-btn doodle-btn-primary" (click)="openAddForm()">
+                <i class="bi bi-plus-lg"></i> افزودن اولین محصول
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
