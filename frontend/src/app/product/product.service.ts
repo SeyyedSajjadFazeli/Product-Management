@@ -7,7 +7,7 @@ import { Product } from './product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://product-management-3q2w.onrender.com/api/products/';
+  private apiUrl = 'https://product-management-r8y9.onrender.com/api/products/';
 
   constructor(private http: HttpClient) {
     console.log('✅ ProductService ساخته شد!');
