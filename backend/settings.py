@@ -53,7 +53,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://product-management-1-s46f.onrender.com",
+    "https://product-management-1-ciog.onrender.com",
 ]
 
 REST_FRAMEWORK = {
